@@ -25,7 +25,7 @@ export default function Sidebar() {
         />
       </div>
 
-      {/* Menu */}
+      {/* Menu */}asdasdas
       <div className="mt-4 mb-2.5 xl:items-start">
         <SidebarmenuItem text="Home" Icon={AiFillHome} active />
         <SidebarmenuItem text="Explore" Icon={BiHash} />
