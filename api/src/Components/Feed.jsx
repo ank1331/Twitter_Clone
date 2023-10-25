@@ -1,5 +1,6 @@
 import React from "react";
 import { HiSparkles } from "react-icons/hi2";
+import Input from "./Input";
 export default function Feed() {
   return (
     <div className="xl:ml-[370px] flex-grow  max-w-xl border-l border-r border-gray-200 h-full xl:min-w-[576px] sm:ml-[73px]">
@@ -9,6 +10,7 @@ export default function Feed() {
           <HiSparkles />
         </div>
       </div>
+      <Input/>
     </div>
   );
 }
