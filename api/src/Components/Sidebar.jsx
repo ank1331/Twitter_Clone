@@ -14,7 +14,7 @@ import { CiCircleMore } from "react-icons/ci";
 
 export default function Sidebar() {
   return (
-    <div className=" flex flex-col sm:flex p-2 xl:items-start fixed h-full">
+    <div className=" flex flex-col sm:flex p-2 xl:items-start fixed h-full xl:ml-24">
       {/* Twitter Logo */}
 
       <div className="hoverEffect p-0 hover:bg-blue-100 xl:p-2 mt-3">
