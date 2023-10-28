@@ -5,7 +5,7 @@ import Widget from "./Components/Widget";
 function App() {
   return (
     <div className="flex min-h-screen max-w-7xl mx-auto">
-      <main>
+      <main className="flex">
         <Sidebar />
 
         <Feed />
