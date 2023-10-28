@@ -51,8 +51,8 @@ export default function Widget() {
           What`s Happening
         </h4>
 
-        {arti.slice(0,articlenum).map((article)=>(
-        <News key={article.title} article = {article}/>))}
+        {/* {arti.slice(0,articlenum).map((article)=>(
+        <News key={article.title} article = {article}/>))} */}
         <button
           onClick={() => setarticlenum(articlenum + 3)}
           className="text-blue-300 px-4 pb-3 hover:text-blue-400"
@@ -66,7 +66,7 @@ export default function Widget() {
           Who to Follow
         </h4>
 
-        {usergen.slice(0, incUser).map((article) => (
+        {/* {usergen.slice(0, incUser).map((article) => (
           <div key={article.login.username} className="flex items-center px-4 py-2 cursor-pointer  hover:bg-gray-200" article={article}>
             <img className=" rounded-full" width="40" src={article.picture.thumbnail} />
             <div className="truncate ml-4 leading-5">
@@ -75,7 +75,7 @@ export default function Widget() {
             </div>
             <button className="ml-auto bg-black text-white rounded-full text-sm px-3.5 py-1.5 font-bold"> Follow</button>
           </div>
-        ))}
+        ))} */}
 
         <button
           onClick={() => setIncUser(incUser + 3)}
