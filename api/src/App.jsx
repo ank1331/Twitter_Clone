@@ -1,18 +1,15 @@
-import Feed from "./Components/Feed";
-import Sidebar from "./Components/Sidebar";
-import Widget from "./Components/Widget";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import Home from "./Components/Home";
+import SignIn from "./Components/SignIn";
 
 function App() {
   return (
-    <div className="flex min-h-screen  mx-auto">
-      <main className="flex">
-        <Sidebar />
-
-        <Feed />
-
-        <Widget />
-      </main>
-    </div>
+    <Router>
+      <Routes>
+        <Route path="/signup" element={<SignIn />} />
+        <Route path="/" element={<Home />} />
+      </Routes>
+    </Router>
   );
 }
 
