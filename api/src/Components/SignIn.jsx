@@ -1,8 +1,13 @@
 import React from "react";
 import { FcGoogle } from "react-icons/fc";
 import { AiFillApple } from "react-icons/ai";
+import CommentModal from "./CommentModal";
+import { useRecoilState } from "recoil";
+import { modalState } from "../../atom/modalatom";
 
 export default function SignIn() {
+  const [open, setOpen] = useRecoilState(modalState)
+
   return (
     <div>
       
@@ -37,7 +42,7 @@ export default function SignIn() {
             <div class="px-4">or</div>
             <div class="border-t border-gray-300 flex-1"></div>
           </div>
-          <button className="border-2 px-4 h-[40px] mt-4 w-[300px] text-center rounded-full border-none bg-sky-500 font-bold text-sm text-white ring-slate-200 hover:brightness-95 transition duration-10 ease-in-out "> Create Account </button>
+          <button onClick={()=>setOpen(!open)} className="border-2 px-4 h-[40px] mt-4 w-[300px] text-center rounded-full border-none bg-sky-500 font-bold text-sm text-white ring-slate-200 hover:brightness-95 transition duration-10 ease-in-out "> Create Account </button>
           <p className="mt-4 text-xs w-[300px]">
             By signing up, you agree to the <span className="text-sky-500 hover:underline"> Terms of Service</span> and <span className="text-sky-500 hover:underline">Privacy Policy</span>,
             including <span className="text-sky-500 hover:underline">Cookie Use.</span>
@@ -47,6 +52,7 @@ export default function SignIn() {
           <button className="border-2 mb-10 px-4 h-[40px] mt-4 w-[300px] text-center rounded-full text-sky-500 font-bold text-sm ring-1 ring-slate-200 hover:bg-sky-200">Sign In</button>
         </div>
       </div>
+      <CommentModal/>
     </div>
   );
 }

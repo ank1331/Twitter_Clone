@@ -3,6 +3,7 @@ import Feed from "./Feed";
 import Sidebar from "./Sidebar";
 
 import Widget from "./Widget";
+import CommentModal from './CommentModal';
 
 
 export default function Home() {
@@ -14,6 +15,9 @@ export default function Home() {
         <Feed />
 
         <Widget />
+
+        {/* Modal */}
+        
       </main>
     </div>
   )
