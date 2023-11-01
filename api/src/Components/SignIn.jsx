@@ -4,13 +4,17 @@ import { AiFillApple } from "react-icons/ai";
 import CommentModal from "./CommentModal";
 import { useRecoilState } from "recoil";
 import { modalState } from "../../atom/modalatom";
+import CommentModalnew from "./CommentModalnew";
+import { modalNewState } from "../../atom/modalatom";
 
 export default function SignIn() {
   const [open, setOpen] = useRecoilState(modalState)
+  const [opennew, setOpennew] = useRecoilState(modalNewState)
 
   return (
     <div>
       
+<CommentModalnew/>
       <div className=" flex justify-between ">
         <img
           className="mt-40 ml-40 w-[25%] h-[60%] "
@@ -49,7 +53,7 @@ export default function SignIn() {
           </p>
 
           <h4 className=" font-bold text-lg mt-16">Already have an account?</h4>
-          <button onClick={()=>setOpen(!open)} className="border-2 mb-10 px-4 h-[40px] mt-4 w-[300px] text-center rounded-full text-sky-500 font-bold text-sm ring-1 ring-slate-200 hover:bg-sky-200">Sign In</button>
+          <button onClick={()=>setOpennew(!opennew)} className="border-2 mb-10 px-4 h-[40px] mt-4 w-[300px] text-center rounded-full text-sky-500 font-bold text-sm ring-1 ring-slate-200 hover:bg-sky-200">Sign In</button>
         </div>
       </div>
       <CommentModal/>

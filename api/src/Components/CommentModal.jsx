@@ -1,11 +1,12 @@
 import React from "react";
 import { useRecoilState } from "recoil";
-import { modalState } from "../../atom/modalatom";
+import { modalNewState, modalState } from "../../atom/modalatom";
 import Modal from "react-modal";
 import { VscChromeClose } from "react-icons/vsc";
 
 export default function CommentModal() {
   const [open, setOpen] = useRecoilState(modalState);
+ 
 
   return (
     <div>
