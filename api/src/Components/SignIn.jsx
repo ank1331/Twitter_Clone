@@ -49,7 +49,7 @@ export default function SignIn() {
           </p>
 
           <h4 className=" font-bold text-lg mt-16">Already have an account?</h4>
-          <button className="border-2 mb-10 px-4 h-[40px] mt-4 w-[300px] text-center rounded-full text-sky-500 font-bold text-sm ring-1 ring-slate-200 hover:bg-sky-200">Sign In</button>
+          <button onClick={()=>setOpen(!open)} className="border-2 mb-10 px-4 h-[40px] mt-4 w-[300px] text-center rounded-full text-sky-500 font-bold text-sm ring-1 ring-slate-200 hover:bg-sky-200">Sign In</button>
         </div>
       </div>
       <CommentModal/>
