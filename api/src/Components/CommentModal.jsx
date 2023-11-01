@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { useRecoilState } from "recoil";
 import { modalNewState, modalState } from "../../atom/modalatom";
 import Modal from "react-modal";
@@ -6,7 +6,26 @@ import { VscChromeClose } from "react-icons/vsc";
 
 export default function CommentModal() {
   const [open, setOpen] = useRecoilState(modalState);
+  const [ data, setData] = useState({
+    name:"",
+    username:"",
+    email:"",
+    password:""
+
+  })
+
+const handleChange = (e)=>{
+    setData({...data, [e.target.id]:e.target.value})
+}
  
+const submitPage = (e)=>{
+    e.preventDefault()
+    console.log(data)
+    setOpen(false)
+}
+
+
+// console.log(data)
 
   return (
     <div>
@@ -30,18 +49,24 @@ export default function CommentModal() {
             <h1 className="font-bold ml-12 mt-6 tracking-normal text-2xl">
               Create your account
             </h1>
+            <form onSubmit={submitPage}>
+
+
+            
             <div>
-                <input className= "ml-12 mt-6 rounded-sm w-[420px]" placeholder="Name"  type="text"/>
-                <input className= "ml-12 mt-6 rounded-sm w-[420px]" placeholder="Username"  type="text"/>
-                <input className= "ml-12 mt-6 rounded-sm w-[420px]" placeholder="password"  type="text"/>
+                <input onChange = {handleChange} id ="name"  className= "ml-12 mt-6 rounded-sm w-[420px]" placeholder="Name"  type="text"/>
+                <input onChange = {handleChange} id = "username" className= "ml-12 mt-6 rounded-sm w-[420px]" placeholder="Username"  type="text"/>
+                <input onChange = {handleChange} id = "email" className= "ml-12 mt-6 rounded-sm w-[420px]" placeholder="Email"  type="text"/>
+                <input onChange = {handleChange} id = "password" className= "ml-12 mt-6 rounded-sm w-[420px]" placeholder="password"  type="text"/>
             </div>
             <div className="mt-2">
                 <span className=" hover:underline text-sm text-sky-500 ml-[360px]"> Use email instead</span>
             </div>
             <div className=" mt-4  ml-12">
 
-            <button className="rounded-full w-[420px] bg-black h-10 mb-8 text-white ">SUBMIT</button>
+            <button  className="rounded-full w-[420px] bg-black h-10 mb-8 text-white ">SUBMIT</button>
             </div>
+            </form>
 
           </div>
         </Modal>

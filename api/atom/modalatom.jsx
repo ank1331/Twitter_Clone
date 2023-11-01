@@ -7,5 +7,5 @@ export const modalState = atom({
 
 export const modalNewState = atom({
   key: "modalNewState", // unique ID (with respect to other atoms/selectors)
-  default: true, // default value (aka initial value)
+  default: false, // default value (aka initial value)
 });
