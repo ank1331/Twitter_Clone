@@ -17,4 +17,4 @@ mongoose.connect("mongodb://localhost:27017/Twitteruser").then(()=>{
     console.log(error)
 })
 
-app.use("/", userRoutes)
+app.use("/api", userRoutes)

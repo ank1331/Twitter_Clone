@@ -3,8 +3,12 @@ import { useRecoilState } from "recoil";
 import { modalNewState, modalState } from "../../atom/modalatom";
 import Modal from "react-modal";
 import { VscChromeClose } from "react-icons/vsc";
+import { useNavigate } from "react-router-dom"
+import { ToastContainer, toast } from 'react-toastify';
+  import 'react-toastify/dist/ReactToastify.css';
 
 export default function CommentModal() {
+  const notify = () => {toast("Account Created successfully!")};
   const [open, setOpen] = useRecoilState(modalState);
   const [ data, setData] = useState({
     name:"",
@@ -14,14 +18,32 @@ export default function CommentModal() {
 
   })
 
+  const navigate = useNavigate()
+
 const handleChange = (e)=>{
     setData({...data, [e.target.id]:e.target.value})
 }
  
-const submitPage = (e)=>{
+const submitPage =async (e)=>{
     e.preventDefault()
-    console.log(data)
-    setOpen(false)
+    
+      const res = await fetch(`/api/signup`, {
+        method:"POST",
+        headers:{
+          "Content-Type":"application/json",
+        },
+        body:JSON.stringify(data),
+        
+      })
+      const data_new = await res.json();
+    console.log(data_new)
+    if(data_new.message == "user Created successfully"){
+      // toast("Account Created successfully!")
+      setOpen(false)
+      navigate("/")
+    }
+    
+
 }
 
 
@@ -44,6 +66,7 @@ const submitPage = (e)=>{
                 className="hover: cursor-pointer hover:bg-slate-200 hover:ring-8 hover:ring-slate-200  rounded-full"
               />
               <h1 className="font-bold text-lg"> SignUp</h1>
+             
             </div>
 
             <h1 className="font-bold ml-12 mt-6 tracking-normal text-2xl">
@@ -64,11 +87,12 @@ const submitPage = (e)=>{
             </div>
             <div className=" mt-4  ml-12">
 
-            <button  className="rounded-full w-[420px] bg-black h-10 mb-8 text-white ">SUBMIT</button>
+            <button   className="rounded-full w-[420px] bg-black h-10 mb-8 text-white ">SUBMIT</button>
             </div>
             </form>
 
           </div>
+          
         </Modal>
       )}
     </div>
